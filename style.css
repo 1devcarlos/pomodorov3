@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap");
+
+:root {
+  --bg: #fff;
+  --bg-secondary: #29292e;
+  --bg-border: #8a2be2;
+  --bg-cards: #c4c4cc;
+  --fc-primary: #323238;
+
+  font-size: 62.5%;
+
+  --ff-roboto: "Roboto", sans-serif;
+}
+
+
+.dark-theme {
+  --bg: #000;
+  --bg-secondary: #c4c4cc;
+  --bg-border: #8a2be2;
+  --bg-cards: #29292e;
+  --fc-primary: #fff;
+}
+
+
+.toggle-theme {
+  --bg: #000;
+  --bg-secondary: #c4c4cc;
+  --bg-border: #8a2be2;
+  --bg-cards: #29292e;
+  --fc-primary: #c4c4cc;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: var(--bg);
+  font-family: var(--ff-roboto);
+  min-height: 100vh;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+nav {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  gap: clamp(5rem, 10rem + 5vw, 20rem);
+  flex-wrap: wrap;
+  padding-top: 15rem;
+}
+
+#timer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#time span {
+  color: var(--fc-primary);
+  font-size: clamp(10rem, 10rem + 10vw, 12rem);
+}
+
+#button-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+#button-controls button svg path {
+  fill: var(--bg-secondary);
+}
+
+#button-controls button svg:hover path {
+  fill: var(--bg-border);
+}
+
+#cards-sons {
+  display: grid;
+  gap: 3.2rem;
+  grid-template-areas:
+    "A B"
+    "C D";
+}
+
+.card {
+  position: relative;
+  border-radius: 2.4rem;
+  background-color: var(--bg-cards);
+  transition: all 400ms;
+}
+
+.card svg path {
+  fill: var(--bg-secondary);
+}
+
+.card:hover {
+  background-color: var(--bg-border);
+  transform: scale(1.06);
+}
+
+.card svg:hover path {
+  fill: var(--bg);
+}
+
+.press {
+  position: relative;
+  background-color: var(--bg-border);
+  border-radius: 2.4rem;
+  transition: all 200ms;
+}
+
+.press svg path {
+  fill: var(--bg);
+}
+
+.vol {
+  position: absolute;
+  bottom: 2.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.vol {
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 9rem;
+  border-radius: 5rem;
+}
+
+.vol::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 5rem;
+  background: var(--bg);
+  margin-top: -5px;
+}
+
+.vol::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  background: var(--bg);
+  border-radius: 5rem;
+}
+
+.card:hover .vol::-webkit-slider-thumb,
+.card:hover .vol::-webkit-slider-runnable-track {
+  background-color: var(--bg);
+}
+
+.bgNature,
+.bgRain,
+.bgCoffee,
+.bgFire {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12rem;
+  font-size: 2rem;
+  color: var(--fc-primary);
+}
+
+footer a {
+  margin-left: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--fc-primary);
+}
+
+footer a:hover {
+  color: var(--bg-border);
+}
+
+@media (max-width: 425px) {
+  nav {
+    top: 10px;
+    right: 10px;
+  }
+
+  main {
+    padding-top: 10rem;
+    gap: 5rem;
+  }
+}
